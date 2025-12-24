@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import TabSelectorMobile from "./TabSelectorMobile";
 import TabBarDesktop from "./TabBarDesktop";
-import SidebarDesktop from "./SidebarDesktop";
 import BackgroundEffects from "./BackgroundEffects";
 import TypewriterText from "./TypewriterText";
 
@@ -10,11 +9,12 @@ import { Terminal, Github, Linkedin } from "lucide-react";
 
 import Projects from "./Projects";
 import Skills from "./Skills";
+import Experience from "./Experience";
 import Contact from "./Contact";
 
 import type { Tab } from "./TabButton";
 
-const tabs: Tab[] = ["Home", "Projects", "Skills", "Contact"];
+const tabs: Tab[] = ["Home", "Experience", "Skills", "Projects", "Contact"];
 
 const Home = () => {
     const [activeTab, setActiveTab] = useState<Tab>("Home");
@@ -26,7 +26,6 @@ const Home = () => {
         const handleMouseMove = (e: MouseEvent) => {
             setMousePosition({ x: e.clientX, y: e.clientY });
         };
-
 
         window.addEventListener("mousemove", handleMouseMove);
 
@@ -87,11 +86,7 @@ const Home = () => {
     return (
         <main className="min-h-screen bg-gray-900 text-white overflow-x-hidden scroll-smooth pt-16">
             <TabSelectorMobile activeTab={activeTab} onChange={handleSelectChange} tabs={tabs} />
-            {activeTab === "Home" ? (
-                <TabBarDesktop activeTab={activeTab} onClick={handleTabClick} tabs={tabs} />
-            ) : (
-                <SidebarDesktop activeTab={activeTab} onClick={handleTabClick} tabs={tabs} />
-            )}
+            <TabBarDesktop activeTab={activeTab} onClick={handleTabClick} tabs={tabs} />
 
             <BackgroundEffects mouseX={mousePosition.x} mouseY={mousePosition.y} />
 
@@ -140,15 +135,19 @@ const Home = () => {
                 </div>
             </section>
 
-            <section id="projects" className="max-w-7xl mx-auto px-4 py-12 scroll-mt-8 md:ml-48">
-                <Projects />
+            <section id="experience" className="max-w-7xl mx-auto px-4 py-12 scroll-mt-8">
+                <Experience />
             </section>
 
-            <section id="skills" className="max-w-7xl mx-auto px-4 py-12 scroll-mt-8 md:ml-48">
+            <section id="skills" className="max-w-7xl mx-auto px-4 py-12 scroll-mt-8">
                 <Skills />
             </section>
 
-            <section id="contact" className="max-w-7xl mx-auto px-4 py-12 scroll-mt-8 md:ml-48">
+            <section id="projects" className="max-w-7xl mx-auto px-4 py-12 scroll-mt-8">
+                <Projects />
+            </section>
+
+            <section id="contact" className="max-w-7xl mx-auto px-4 py-12 scroll-mt-8">
                 <Contact />
             </section>
         </main>

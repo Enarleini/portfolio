@@ -1,7 +1,7 @@
 import React, { type MouseEvent } from "react";
 import { motion } from "framer-motion";
 
-type Tab = "Home" | "Projects" | "Skills" | "Contact";
+type Tab = "Home" | "Projects" | "Skills" | "Experience" | "Contact";
 
 interface TabButtonProps {
     tab: Tab;
