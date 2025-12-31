@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import TabSelectorMobile from "./TabSelectorMobile";
 import TabBarDesktop from "./TabBarDesktop";
 import BackgroundEffects from "./BackgroundEffects";
 import TypewriterText from "./TypewriterText";
@@ -75,17 +74,8 @@ const Home = () => {
         const section = document.getElementById(tab.toLowerCase());
         section?.scrollIntoView({ behavior: "smooth" });
     };
-
-    const handleSelectChange = (tab: Tab, e: React.ChangeEvent<HTMLSelectElement>) => {
-        e.preventDefault();
-        setActiveTab(tab);
-        const section = document.getElementById(tab.toLowerCase());
-        section?.scrollIntoView({ behavior: "smooth" });
-    };
-
     return (
         <main className="min-h-screen bg-gray-900 text-white overflow-x-hidden scroll-smooth pt-16">
-            <TabSelectorMobile activeTab={activeTab} onChange={handleSelectChange} tabs={tabs} />
             <TabBarDesktop activeTab={activeTab} onClick={handleTabClick} tabs={tabs} />
 
             <BackgroundEffects mouseX={mousePosition.x} mouseY={mousePosition.y} />
