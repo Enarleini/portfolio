@@ -106,7 +106,7 @@ const Home = () => {
 
                     <div className="space-x-6">
                         <a
-                            href="https://github.com/enarL"
+                            href="https://github.com/enarLeini"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-6 py-3 border border-gray-700 rounded-lg text-gray-400 font-semibold hover:text-white hover:border-white transition"
